@@ -1,0 +1,19 @@
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+ConditionalLogit = "d7981053-e096-4a22-a0e9-e248ae39162e"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+StatsModels = "3eaba693-59b7-5ba5-a881-562e759f1c8d"
+
+# `[sources]` needs Julia ≥ 1.11. On Julia 1.10 run, once:
+#   julia --project=benchmark/compare -e 'using Pkg; Pkg.develop(path = ".")'
+[sources]
+ConditionalLogit = {path = "../.."}
+
+[compat]
+CSV = "0.10"
+DataFrames = "1"
+
+StatsModels = "0.7"

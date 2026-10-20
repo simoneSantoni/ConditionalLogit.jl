@@ -1,0 +1,8 @@
+scenario,tool,threads,rows,seconds,iterations,loglik
+pairs,R survival::clogit,1,40000,0.141,4,-12583.4579020436
+match1to4,R survival::clogit,1,100000,0.694,4,-26637.4034499463
+choice,R survival::clogit,1,500000,3.413,4,-100031.269780743
+multi,R survival::clogit,1,200000,2.612,5,-66794.1820573977
+panelfe,R survival::clogit,1,200000,1.692,4,-95560.9579298794
+bigstrata,R survival::clogit,1,50000,1.791,5,-22634.251287708
+choicelarge,R survival::clogit,1,1000000,11.804,4,-190089.225318756

@@ -1,0 +1,73 @@
+{
+  "meta": {
+    "R": "R version 4.6.1 (2026-06-24)",
+    "survival": "3.8.6",
+    "source": "survival::clogit(method = 'exact')",
+    "control": "coxph.control(eps = 1e-14, toler.chol = 1e-15, iter.max = 200)"
+  },
+  "data": "la.csv",
+  "fits": [
+    {
+      "name": "la_gall",
+      "note": "SAS/STAT LOGISTIC Example 11 (LOGIEX11): 63 matched pairs",
+      "formula": "y ~ gall + strata(s)",
+      "covariates": ["gall"],
+      "coefnames": ["gall"],
+      "aliased": [false],
+      "coef": [0.955511445027428],
+      "se": [0.526234811584217],
+      "vcov": [
+        [0.276923076923076]
+      ],
+      "loglik0": -43.6682723752765,
+      "loglik": -41.826783558158,
+      "lr": 3.68297763423703,
+      "score": 3.55555555555556,
+      "wald": 3.2969521056998,
+      "df": 1,
+      "n": 126,
+      "nevent": 63,
+      "iter": 4,
+      "at_beta": {
+        "beta": [0.5],
+        "loglik": -42.2250088404395,
+        "vcov": [
+          [0.236402885022931]
+        ],
+        "score": 0.762317403274347
+      }
+    },
+    {
+      "name": "la_gall_hyper",
+      "note": "",
+      "formula": "y ~ gall + hyper + strata(s)",
+      "covariates": ["gall", "hyper"],
+      "coefnames": ["gall", "hyper"],
+      "aliased": [false, false],
+      "coef": [0.970407942960899, 0.348065686273649],
+      "se": [0.53073089674033, 0.376963456077999],
+      "vcov": [
+        [0.281675284754794, 0.0121141209223407],
+        [0.0121141209223407, 0.142101447218269]
+      ],
+      "loglik0": -43.6682723752765,
+      "loglik": -41.3939214979675,
+      "lr": 4.54870175461807,
+      "score": 4.36200716845878,
+      "wald": 4.00597532421878,
+      "df": 2,
+      "n": 126,
+      "nevent": 63,
+      "iter": 5,
+      "at_beta": {
+        "beta": [0.5, -0.25],
+        "loglik": -43.086928154304,
+        "vcov": [
+          [0.238236307562667, -0.00449166191327247],
+          [-0.00449166191327247, 0.133614554298003]
+        ],
+        "score": 3.28789258292545
+      }
+    }
+  ]
+}

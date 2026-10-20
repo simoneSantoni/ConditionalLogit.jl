@@ -1,0 +1,12 @@
+[deps]
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+ConditionalLogit = "d7981053-e096-4a22-a0e9-e248ae39162e"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+
+# `[sources]` needs Julia ≥ 1.11. On Julia 1.10 run, once:
+#   julia --project=benchmark -e 'using Pkg; Pkg.develop(path = ".")'
+[sources]
+ConditionalLogit = {path = ".."}
+
+[compat]
+BenchmarkTools = "1"

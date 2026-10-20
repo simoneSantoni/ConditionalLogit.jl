@@ -1,0 +1,89 @@
+
+  ___  ____  ____  ____  ____ (R)
+ /__    /   ____/   /   ____/
+___/   /   /___/   /   /___/   15.0   Copyright 1985-2017 StataCorp LLC
+  Statistics/Data Analysis            StataCorp
+                                      4905 Lakeway Drive
+     MP - Parallel Edition            College Station, Texas 77845 USA
+                                      800-STATA-PC        http://www.stata.com
+                                      979-696-4600        stata@stata.com
+                                      979-696-4601 (fax)
+
+Single-user 16-core Stata perpetual license:
+       Serial number:  501506248995
+         Licensed to:  Simone Santoni
+                       Personal research
+
+Notes:
+      1.  Stata is running in batch mode.
+      2.  Unicode is supported; see help unicode_advice.
+      3.  More than 2 billion observations are allowed; see help obs_advice.
+      4.  Maximum number of variables is set to 5000; see help set_maxvar.
+
+. do stata_manual.do 
+
+. * Runs the Stata [R] clogit manual examples in Stata and writes full-precisio
+> n results
+. * to data/stata_full.csv, with default and with tight convergence settings, s
+> o that
+. * stata_manual.jl can compare ConditionalLogit.jl with Stata beyond the print
+> ed digits.
+. *
+. *   cd validation && stata-mp -b do stata_manual.do
+. 
+. version 15
+
+. set more off
+
+. tempname res
+
+. postfile `res' str12 example str8 setting str16 term double(estimate se) ///
+>     double(ll ll_0 N chi2) using "data/stata_full_raw.dta", replace
+(note: file data/stata_full_raw.dta not found)
+
+. 
+. local tight nrtolerance(1e-12) tolerance(1e-14) ltolerance(1e-16) iterate(200
+> )
+
+. 
+. foreach setting in default tight {
+  2.     local opts = cond("`setting'" == "tight", "`tight'", "")
+  3.     use "data/clogitid.dta", clear
+  4.     quietly clogit y x1 x2, group(id) `opts'
+  5.     foreach t in x1 x2 {
+  6.         post `res' ("clogitid") ("`setting'") ("`t'") (_b[`t']) (_se[`t'])
+>  (e(ll)) (e(ll_0)) (e(N)) (e(chi2))
+  7.     }
+  8.     use "data/lowbirth2.dta", clear
+  9.     quietly clogit low lwt smoke ptd ht ui i.race, group(pairid) `opts'
+ 10.     foreach t in lwt smoke ptd ht ui 2.race 3.race {
+ 11.         post `res' ("lowbirth2") ("`setting'") ("`t'") (_b[`t']) (_se[`t']
+> ) (e(ll)) (e(ll_0)) (e(N)) (e(chi2))
+ 12.     }
+ 13.     use "data/union.dta", clear
+ 14.     quietly clogit union age grade not_smsa south black, group(idcode) `op
+> ts'
+ 15.     foreach t in age grade not_smsa south {
+ 16.         post `res' ("union") ("`setting'") ("`t'") (_b[`t']) (_se[`t']) (e
+> (ll)) (e(ll_0)) (e(N)) (e(chi2))
+ 17.     }
+ 18. }
+(Applied Logistic Regression, Hosmer & Lemeshow)
+(NLS Women 14-24 in 1968)
+(Applied Logistic Regression, Hosmer & Lemeshow)
+(NLS Women 14-24 in 1968)
+
+. postclose `res'
+
+. use "data/stata_full_raw.dta", clear
+
+. format estimate se ll ll_0 chi2 %21.0g
+
+. export delimited using "data/stata_full.csv", replace
+(note: file data/stata_full.csv not found)
+file data/stata_full.csv saved
+
+. erase "data/stata_full_raw.dta"
+
+. 
+end of do-file

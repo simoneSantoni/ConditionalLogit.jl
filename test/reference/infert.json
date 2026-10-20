@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "R": "R version 4.6.1 (2026-06-24)",
+    "survival": "3.8.6",
+    "source": "survival::clogit(method = 'exact')",
+    "control": "coxph.control(eps = 1e-14, toler.chol = 1e-15, iter.max = 200)"
+  },
+  "data": "infert.csv",
+  "fits": [
+    {
+      "name": "infert_si",
+      "note": "",
+      "formula": "case ~ spontaneous + induced + strata(stratum)",
+      "covariates": ["spontaneous", "induced"],
+      "coefnames": ["spontaneous", "induced"],
+      "aliased": [false, false],
+      "coef": [1.98587551668241, 1.40901163187936],
+      "se": [0.352443539807847, 0.360712436249499],
+      "vcov": [
+        [0.124216448752285, 0.0927258778828487],
+        [0.0927258778828487, 0.130113461665049]
+      ],
+      "loglik0": -90.7793548513448,
+      "loglik": -64.202236924431,
+      "lr": 53.1542358538277,
+      "score": 48.4386450788241,
+      "wald": 31.8371406674715,
+      "df": 2,
+      "n": 248,
+      "nevent": 83,
+      "iter": 6,
+      "at_beta": {
+        "beta": [1, 1],
+        "loglik": -70.291739812658,
+        "vcov": [
+          [0.0632039346035419, 0.0467085163055228],
+          [0.0467085163055228, 0.08210247672439]
+        ],
+        "score": 10.5277720533196
+      }
+    },
+    {
+      "name": "infert_si_edu",
+      "note": "education is constant within strata: R returns NA (aliased)",
+      "formula": "case ~ spontaneous + induced + education + strata(stratum)",
+      "covariates": ["spontaneous", "induced", "education"],
+      "coefnames": ["spontaneous", "induced", "education12+ yrs", "education6-11yrs"],
+      "aliased": [false, false, true, true],
+      "coef": [1.98587551668241, 1.40901163187936, null, null],
+      "se": [0.352443539807847, 0.360712436249499, null, null],
+      "vcov": [
+        [0.124216448752285, 0.0927258778828487, null, null],
+        [0.0927258778828487, 0.130113461665049, null, null],
+        [null, null, null, null],
+        [null, null, null, null]
+      ],
+      "loglik0": -90.7793548513448,
+      "loglik": -64.202236924431,
+      "lr": 53.1542358538277,
+      "score": 48.4386450788241,
+      "wald": 31.8371406674715,
+      "df": 2,
+      "n": 248,
+      "nevent": 83,
+      "iter": 6
+    }
+  ]
+}

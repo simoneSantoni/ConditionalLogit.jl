@@ -1,0 +1,34 @@
+{
+  "meta": {
+    "R": "R version 4.6.1 (2026-06-24)",
+    "survival": "3.8.6",
+    "source": "survival::clogit(method = 'exact')",
+    "control": "coxph.control(eps = 1e-14, toler.chol = 1e-15, iter.max = 200)"
+  },
+  "data": "synth_freq.csv",
+  "fits": [
+    {
+      "name": "synth_freq_x",
+      "note": "fit on the row-expanded data (each row repeated f times)",
+      "formula": "y ~ x1 + x2 + strata(id)",
+      "covariates": ["x1", "x2"],
+      "coefnames": ["x1", "x2"],
+      "aliased": [false, false],
+      "coef": [2.13044255508672, 0.00475603975750398],
+      "se": [0.398704667874915, 0.491289014880432],
+      "vcov": [
+        [0.158965412185246, -0.0109330872426086],
+        [-0.0109330872426086, 0.241364896142185]
+      ],
+      "loglik0": -87.0982513836289,
+      "loglik": -56.2708500294598,
+      "lr": 61.6548027083383,
+      "score": 49.7711968897653,
+      "wald": 28.6471461348033,
+      "df": 2,
+      "n": 207,
+      "nevent": 108,
+      "iter": 6
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "R": "R version 4.6.1 (2026-06-24)",
+    "survival": "3.8.6",
+    "source": "survival::clogit(method = 'exact')",
+    "control": "coxph.control(eps = 1e-14, toler.chol = 1e-15, iter.max = 200)"
+  },
+  "data": "synth_missing.csv",
+  "fits": [
+    {
+      "name": "synth_missing_x",
+      "note": "listwise deletion (R na.omit; SAS default without STRATA / MISSING)",
+      "formula": "y ~ x1 + x2 + x3 + strata(id)",
+      "covariates": ["x1", "x2", "x3"],
+      "coefnames": ["x1", "x2", "x3"],
+      "aliased": [false, false, false],
+      "coef": [0.761385922232405, -0.390815262647301, 0.167035720214019],
+      "se": [0.156487222908801, 0.260200214238167, 0.0690236884568125],
+      "vcov": [
+        [0.0244882509337089, 0.0016286866623408, 0.000548865693305938],
+        [0.0016286866623408, 0.067704151489588, -0.000442279202425853],
+        [0.000548865693305938, -0.000442279202425853, 0.00476426956818311]
+      ],
+      "loglik0": -146.062095344508,
+      "loglik": -126.985798422499,
+      "lr": 38.1525938440188,
+      "score": 35.9882710773847,
+      "wald": 31.096919582453,
+      "df": 3,
+      "n": 419,
+      "nevent": 186,
+      "iter": 5
+    }
+  ]
+}

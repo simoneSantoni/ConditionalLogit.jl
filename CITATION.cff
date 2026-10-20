@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use ConditionalLogit.jl in your research, please cite it as below."
+type: software
+title: "ConditionalLogit.jl: Exact Conditional Logit Models in Julia"
+abstract: >-
+  A Julia package that fits conditional logistic regression (matched case-control
+  sets, fixed-effects logit, McFadden's choice model) by exact conditional maximum
+  likelihood, reproducing SAS PROC LOGISTIC with a STRATA statement.
+authors:
+  - family-names: Santoni
+    given-names: Simone
+version: 0.1.0
+repository-code: "https://github.com/simoneSantoni/ConditionalLogit.jl"
+url: "https://simoneSantoni.github.io/ConditionalLogit.jl/dev/"
+license: MIT
+keywords:
+  - conditional logit
+  - conditional logistic regression
+  - matched case-control
+  - discrete choice
+  - Julia
