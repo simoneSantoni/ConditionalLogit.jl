@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="ConditionalLogit.jl logo">
+  <title>ConditionalLogit.jl</title>
+  <!-- Logistic curve (Julia blue) with three observations of one stratum (Julia red, green, purple); the ringed purple point is the event. -->
+  <path d="M 20 210 C 120 210, 136 46, 236 46" fill="none" stroke="#4063D8" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="62.3" cy="198.3" r="26" fill="#CB3C33"/>
+  <circle cx="128" cy="128" r="26" fill="#389826"/>
+  <circle cx="193.7" cy="57.7" r="26" fill="#9558B2"/>
+  <circle cx="193.7" cy="57.7" r="38" fill="none" stroke="#9558B2" stroke-width="6"/>
+</svg>
